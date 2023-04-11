@@ -9,7 +9,8 @@ const port = process.env.PORT;
 
 app.set("view engine", "ejs");
 
-const movieDomain = 'https://tv.lk21official.live'
+const movieDomain = process.env.TARGET_WEBSITE
+const bridgeDomain = process.env.BRIDGE_DOMAIN
 
 app.get('/search/:query', (req, res) => {
   const url = `${movieDomain}/?s=${req.params.query}`; // extract the URL from the query parameter
@@ -52,7 +53,6 @@ app.get('/getiframelinks/:url', (req, res) => {
   const headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
     'Accept-Language': 'en-US,en;q=0.9',
-    // 'referer': 'https://tv.lk21official.live/?s=puss'
   };
   const selector = 'ul.list-unstyled.dropdown-menu.dropdown-menu-right'; // this is the magic potion here
 
@@ -63,7 +63,7 @@ app.get('/getiframelinks/:url', (req, res) => {
 
       $(selector).find('a').each((i, el) => {
         const link = $(el).attr('href');
-        const parsedLink = decodeURIComponent(link.replace('https://bananalicious.xyz/?url=', ''))
+        const parsedLink = decodeURIComponent(link.replace(bridgeDomain, ''))
         links.push(parsedLink);
       });
       // var url = links
