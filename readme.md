@@ -2,6 +2,8 @@
 
 This backend code is designed to search for movies and extract iframelinks using web scraping. It was written using Node.js, Express, Axios, Cheerio, and EJS. 
 
+Note: Only Works if you using Indonesian IP Address, otherwise you should use my another project
+
 ## Installation and Setup
 
 1. Clone the repository from GitHub.
