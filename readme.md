@@ -22,10 +22,6 @@ This route searches for movies using the provided query parameter and returns JS
 
 This route extracts iframelinks from the provided URL using the magic potion selector. The decoded link is returned as an EJS rendered view.
 
-### `/movie`
-
-This route renders an EJS view for displaying movie information.
-
 ### `/`
 
 This route renders an EJS view for searching for movies.
