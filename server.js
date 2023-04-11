@@ -66,7 +66,6 @@ app.get('/getiframelinks/:url', (req, res) => {
         const parsedLink = decodeURIComponent(link.replace(bridgeDomain, ''))
         links.push(parsedLink);
       });
-      // var url = links
       // res.json({ links }); // return the extracted link as a JSON response
       res.render('watch', { links });
     })
@@ -74,10 +73,6 @@ app.get('/getiframelinks/:url', (req, res) => {
       console.log(error);
       res.status(500).json({ error: 'An error occurred while scraping the webpage' });
     });
-});
-
-app.get("/movie", function(req, res) {
-  res.render("movie")
 });
 
 app.get("/", function(req, res) {

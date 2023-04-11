@@ -29,7 +29,3 @@ This route renders an EJS view for searching for movies.
 ## Creator
 
 - [Abba Yosua](https://github.com/abbayosua) (Creator)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
