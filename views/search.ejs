@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Movie Search</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <style>
+  .search-container {
+   margin-top: 20px;
+   display: flex;
+   justify-content: center;
+  }
+  .search-box {
+   width: 500px;
+  }
+  </style>
+ </head>
+ <body>
+  <nav>
+   <div class="nav-wrapper">
+    <a href="#" class="brand-logo center">Movie Search</a>
+   </div>
+  </nav>
+  <div class="container">
+   <div class="search-container">
+    <div class="input-field search-box">
+     <input id="search" type="search" placeholder="Search for a movie..." autocomplete="off">
+     <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+    </div>
+   </div>
+   <div class="row" id="results">
+   
+   </div>
+  </div>
+  <script>
+  $(document).ready(function() {
+   $('#search').keyup(function() {
+    var query = $(this).val();
+    $.get("/search/" + query, function(data) {
+     var resultHtml = '';
+     for (var i = 0; i < data.length; i++) {
+      var movie = data[i];
+      const movieLink = encodeURIComponent(movie.link);
+      resultHtml += '<div class="col s12 l4"><div class="card medium"><div class="card-image"><img src="' + movie.img + '"></div><div class="card-content"><span class="card-title">' + movie.header + '</span><a style="z-index: 99999 !important;" class="btn-floating halfway-fab waves-effect waves-light red" href="/getiframelinks/' + movieLink + '"><i class="material-icons">play_arrow</i></a></div></div></div>';
+     }
+     $('#results').html(resultHtml);
+    });
+   });
+  });
+  </script>
+ </body>
+</html>

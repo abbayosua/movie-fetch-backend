@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Movie Search</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <style>
+  .search-container {
+   margin-top: 20px;
+   display: flex;
+   justify-content: center;
+  }
+  .search-box {
+   width: 500px;
+  }
+  </style>
+ </head>
+ <body>
+  <nav>
+   <div class="nav-wrapper">
+    <a href="#" class="brand-logo center">Movie Search</a>
+   </div>
+  </nav>
+  <div class="container">
+   <div class="search-container">
+    <ul>
+        <% for(var i=0; i<links.length; i++) { %>
+            <li><a href="<%= links[i] %>"><%= links[i] %></a></li>
+        <% } %>
+    </ul>
+   </div>
+   <div class="row" id="results">
+   
+   </div>
+  </div>
+ </body>
+</html>
